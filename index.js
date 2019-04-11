@@ -1,5 +1,5 @@
 $(function() {
-    $(".js-shopping-list-form").submit(event => {
+    $(".js-shopping-list-form").submit(function(event) {
         event.preventDefault();
 
         let itemName = $(this).find('input [name="shopping-list-entry"]').val();
@@ -16,11 +16,10 @@ $(function() {
                     </button>
                 </div>
             </li>);
-        );
     });
 
     $(".shopping-item-controls").on('click', '.shopping-item-toggle', function(event) {
-        $(this).toggleClass(".shopping-item_checked");
+        $(this).toggleClass("shopping-item_checked");
     });
 
     $(".shopping-item-controls").on('click', '.shopping-item-delete', function(event) {
