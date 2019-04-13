@@ -6,21 +6,31 @@ function addNewItem() {
 
         console.log(itemName);
 
-        let newItem = function generateItemElement(itemName) {
-            return `<li>
-            <span class="shopping-item">${itemName}</span>
-            <div class="shopping-item-controls">
-                <button class="shopping-item-toggle">
-                    <span class="button-label">check</span>
-                </button>
-                <button class="shopping-item-delete">
-                    <span class="button-label">delete</span>
-                </button>
-            </div>
-         </li>`
-        };
+        // let newItem = function generateItemElement(itemName) {
+        //     return `<li>
+        //     <span class="shopping-item">${itemName}</span>
+        //     <div class="shopping-item-controls">
+        //         <button class="shopping-item-toggle">
+        //             <span class="button-label">check</span>
+        //         </button>
+        //         <button class="shopping-item-delete">
+        //             <span class="button-label">delete</span>
+        //         </button>
+        //     </div>
+        //  </li>`
+        // };
         
-        $(".shopping-list").append(newItem);
+        $(".shopping-list").append(`<li>
+             <span class="shopping-item">${itemName}</span>
+             <div class="shopping-item-controls">
+                 <button class="shopping-item-toggle">
+                     <span class="button-label">check</span>
+                 </button>
+                 <button class="shopping-item-delete">
+                     <span class="button-label">delete</span>
+                 </button>
+             </div>
+          </li>`);
     });
 
 }
