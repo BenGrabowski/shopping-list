@@ -1,12 +1,14 @@
-$(function() {
-    $(".js-shopping-list-form").submit(function(event) {
+function addNewItem() {
+    $("#js-shopping-list-form").submit(function(event) {
         event.preventDefault();
 
-        let itemName = $(this).find('input [name="shopping-list-entry"]').val();
+        let itemName = $(this).find('input[name="shopping-list-entry"]').val();
 
-       let newItem = function generateItemElement(itemName) {
+        console.log(itemName);
+
+        let newItem = function generateItemElement(itemName) {
             return `<li>
-            <span class="shopping-item">itemName</span>
+            <span class="shopping-item">${itemName}</span>
             <div class="shopping-item-controls">
                 <button class="shopping-item-toggle">
                     <span class="button-label">check</span>
@@ -18,14 +20,27 @@ $(function() {
          </li>`
         };
         
-        $("#shopping-list").append(newItem);
+        $(".shopping-list").append(newItem);
     });
 
-    $(".shopping-item-controls").on('click', '.shopping-item-toggle', function(event) {
-        $(this).toggleClass("shopping-item_checked");
-    });
+}
 
-    $(".shopping-item-controls").on('click', '.shopping-item-delete', function(event) {
-         $(this).remove();
+function checkItem() {
+    $(".shopping-list").on('click', 'button.shopping-item-toggle', function(event) {
+        $(this).parents('span.shopping-item').toggleClass("shopping-item__checked");
     });
-});
+}
+
+function removeItem() {
+    $(".shopping-list").on('click', 'button.shopping-item-delete', function(event) {
+         $(this).parents('li').remove();
+    });
+}
+
+function handleShoppingList () {
+    addNewItem();
+    checkItem();
+    removeItem();
+}
+
+$(handleShoppingList);
